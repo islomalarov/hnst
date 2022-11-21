@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'hnst';
+  src:  url('../fonts/hnst.eot?2wy9kh');
+  src:  url('../fonts/hnst.eot?2wy9kh#iefix') format('embedded-opentype'),
+    url('../fonts/hnst.ttf?2wy9kh') format('truetype'),
+    url('../fonts/hnst.woff?2wy9kh') format('woff'),
+    url('../fonts/hnst.svg?2wy9kh#hnst') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'hnst' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-plus:before {
+  content: "\e900";
+}
+.icon-xmark:before {
+  content: "\e905";
+}
+.icon-circle-xmark:before {
+  content: "\e906";
+}
+.icon-minus:before {
+  content: "\e907";
+}
+.icon-caret-down:before {
+  content: "\e908";
+}
+.icon-ellipsis-vertical:before {
+  content: "\e909";
+}
+.icon-bars:before {
+  content: "\e90a";
+}
+.icon-circle:before {
+  content: "\e901";
+}
+.icon-facebook:before {
+  content: "\e902";
+}
+.icon-instagram:before {
+  content: "\e903";
+}
+.icon-twitter:before {
+  content: "\e904";
+}

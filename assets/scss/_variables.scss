@@ -1,0 +1,26 @@
+//COLORS 
+$global-color: #F5F2EA;
+$section-color: #F0D2B7;
+$fonts-color: #FF0000;
+$fonts-second-color: #FFFFFF;
+
+
+// FONTS
+
+// font-family
+$global-font: 'Roboto';
+$header-font: 'Source Sans Pro';
+
+// font-size
+$header-font-size: 12px;
+$input-font-size: 9px;
+
+
+// CONTAINER
+
+// media-containers
+$screens: (
+    laptop: 1024px,
+    tablet: 768px,
+    phone: 425px
+);

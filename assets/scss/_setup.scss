@@ -1,0 +1,20 @@
+@use 'variables' as *;
+
+@import url(../css/fonts.css);
+
+body {
+    font-family: $global-font;
+    color: $fonts-color;
+    background-color: $global-color;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+body.s-lock {
+    overflow: hidden;
+}
+
+header {
+    font-family: $header-font;
+    font-size: $header-font-size;
+}

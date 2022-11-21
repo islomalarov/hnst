@@ -1,0 +1,742 @@
+@use "resets";
+@use "variables" as *;
+@use 'setup';
+@use "mixins" as mix;
+
+.border_bottom {
+    border-bottom: 1px solid $fonts-color;
+}
+
+.border_right {
+    border-right: 1px solid $fonts-color;
+
+    @include mix.adaptive(tablet) {
+        border-right: none;
+    }
+}
+
+.header {
+    &__menu {
+        @include mix.displayGrid(12);
+        padding: 0 25px;
+        text-transform: uppercase;
+        letter-spacing: 0.98px;
+        height: 70px;
+
+        @include mix.adaptive(laptop) {
+            width: 50%;
+            position: fixed;
+            height: calc(100% - 55px);
+            left: 100%;
+            top: 55px;
+            // transform-origin: 100%;
+            background-color: #fff;
+            transition: .5s;
+            z-index: 1;
+            padding: 20px 25px;
+        }
+
+        @include mix.adaptive(992px) {
+            width: 100%;
+        }
+
+        &-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @include mix.adaptive(laptop) {
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: space-around;
+            }
+        }
+
+        &_left {
+            grid-column: span 3;
+
+            @include mix.adaptive(1240px) {
+                grid-column: span 4;
+            }
+
+            @include mix.adaptive(laptop) {
+                grid-column: 4 / -4;
+            }
+
+            @include mix.adaptive(992px) {
+                grid-column: 5 / -5;
+            }
+
+            @include mix.adaptive(650px) {
+                grid-column: 4 / -4;
+            }
+
+            @include mix.adaptive(phone) {
+                grid-column: 2 / -2;
+            }
+        }
+
+        &-logo {
+            grid-column: 6 / span 2;
+            display: flex;
+            justify-self: center;
+            padding: 12px 0 24px 0;
+
+            @include mix.adaptive(laptop) {
+                grid-column: 1 /-1;
+                order: -1;
+                justify-self: center;
+                align-self: start;
+                padding: 0 10px;
+            }
+        }
+
+        &_right {
+            grid-column: 11 / span 3;
+
+            @include mix.adaptive(1240px) {
+                grid-column: 10 / span 3;
+            }
+
+            @include mix.adaptive(laptop) {
+                grid-column: 4 / -4;
+            }
+
+            @include mix.adaptive(992px) {
+                grid-column: 5 / -5;
+            }
+
+            @include mix.adaptive(650px) {
+                grid-column: 4 / -4;
+            }
+
+            @include mix.adaptive(phone) {
+                grid-column: 2 / -2;
+            }
+        }
+
+        &-item {
+            @include mix.adaptive(laptop) {
+                padding: 20px 0;
+            }
+        }
+
+        &-link {
+            @include mix.adaptive(laptop) {
+                @include mix.flex;
+                padding: 10px;
+                font-size: 22px;
+            }
+        }
+
+        &.active {
+            @include mix.adaptive(laptop) {
+                left: 50%;
+            }
+
+            @include mix.adaptive(992px) {
+                left: 0;
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        &-descr {
+            @include mix.fontSize(14px, 54px);
+            letter-spacing: 1.14px;
+        }
+
+        &-descr-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background-color: $global-color;
+        }
+    }
+}
+
+button[class$='btn'] {
+    color: $fonts-color;
+    font-size: 1.5rem;
+    display: none;
+}
+
+button.header__menu-btn {
+    @include mix.adaptive(laptop) {
+        display: flex;
+        background-color: $section-color;
+        position: absolute;
+        right: 25px;
+        top: calc(55px + (70px / 4));
+    }
+}
+
+button.header__menu-close-btn {
+    @include mix.adaptive(laptop) {
+        display: flex;
+        background-color: #fff;
+        position: absolute;
+        right: 17px;
+        top: 18px;
+    }
+}
+
+.hero {
+    background-color: $section-color;
+
+    &__content {
+        @include mix.displayGrid(12);
+        padding: 150px 0;
+        justify-content: center;
+
+        @include mix.adaptive(992px) {
+            padding: 75px 0;
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            grid-column: span 6;
+            padding: 34px 80px;
+
+            @include mix.adaptive(992px) {
+                grid-column: span 12;
+            }
+
+            &-title {
+                font-size: 19px;
+                padding-bottom: 25px;
+                text-transform: uppercase;
+            }
+
+            &-big-title {
+                font-size: 65px;
+                text-align: center;
+
+                @include mix.adaptive(phone) {
+                    font-size: 45px;
+                }
+            }
+
+            &-descr {
+                font-size: 21px;
+                padding: 29px 0 72px 0;
+            }
+
+            &-links {
+                display: flex;
+                gap: 30px;
+
+                &-btn {
+                    width: 200px;
+                    height: 65px;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    border: 1px solid $fonts-color;
+                    @include mix.flex;
+
+                    @include mix.adaptive(laptop) {
+                        width: 150px;
+                    }
+
+                    @include mix.adaptive(phone) {
+                        width: 100px;
+                    }
+                }
+            }
+        }
+
+        &-image {
+            grid-column: span 6;
+            @include mix.responsiveImg(720, 547);
+
+            @include mix.adaptive(992px) {
+                grid-column: span 12;
+            }
+        }
+    }
+}
+
+.properties {
+
+    &__content {
+        @include mix.displayGrid(12);
+
+        &-block {
+            grid-column: span 3;
+            padding: 27px 0 0 30px;
+            background-color: #fff;
+
+            @include mix.adaptive(laptop) {
+                padding: 27px 15px 20px 15px;
+            }
+
+            @include mix.adaptive(tablet) {
+                grid-column: span 6;
+
+            }
+
+            @include mix.adaptive(phone) {
+                grid-column: 1 / -1;
+            }
+        }
+
+        &-image {
+            grid-column: span 6;
+
+            @include mix.responsiveImg(719, 575);
+
+            @include mix.adaptive(tablet) {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+
+    &__block-title {
+        font-size: 34px;
+        padding-bottom: 53px;
+    }
+
+    &__list-item {
+        @include mix.fontSize(21px, 32px);
+        font-weight: 300;
+    }
+}
+
+.shop {
+
+    &__content {
+        @include mix.displayGrid(12);
+
+        &-title {
+            grid-column: 1 / -1;
+            @include mix.fontSize(46px, 48px);
+            font-weight: 300;
+            padding: 24px 0px 167px 30px;
+
+            @include mix.adaptive(1320px) {
+                padding: 40px 20px;
+                text-align: center;
+            }
+        }
+
+        &-item {
+            grid-column: span 6;
+
+            @include mix.adaptive(tablet) {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+
+    &__item-image {
+        @include mix.responsiveImg(720, 563);
+    }
+
+    &__item-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 49px 25px 28px 30px;
+
+        @include mix.adaptive(tablet) {
+            padding: 15px;
+        }
+
+        @include mix.adaptive(tablet) {
+            border-bottom: 1px solid $fonts-color;
+        }
+
+        &-title {
+            font-size: 65px;
+
+            @include mix.adaptive(phone) {
+                font-size: 45px;
+            }
+        }
+    }
+}
+
+
+
+.newsletter {
+
+    &__content {
+        @include mix.displayGrid(12);
+
+        &-image {
+            grid-column: span 6;
+
+            @include mix.responsiveImg(720, 405);
+
+            @include mix.adaptive(tablet) {
+                grid-column: 1 / -1;
+            }
+        }
+
+        &-info {
+            grid-column: span 6;
+            padding: 24px 0 21px 26px;
+
+            @include mix.adaptive(tablet) {
+                grid-column: 1 / -1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            &-title {
+                font-size: 48px;
+            }
+
+            &-descr {
+                @include mix.fontSize(20px, 28px);
+                padding: 29px 0 25px 0;
+            }
+
+            &-link {
+                display: inline-block;
+                margin-top: 113px;
+                font-size: 13px;
+                letter-spacing: 0.81px;
+            }
+        }
+    }
+}
+
+.form {
+    width: 335px;
+
+    @include mix.displayGrid(4);
+
+    @include mix.adaptive(phone) {
+        width: 280px;
+    }
+
+    &__content {
+        grid-column: span 2;
+        border: 1px solid $fonts-color;
+
+        &-input {
+            color: $fonts-color;
+            background-color: $global-color;
+            height: 29px;
+            border: none;
+
+            &-submit {
+                text-transform: uppercase;
+                color: $fonts-second-color;
+                background-color: red;
+                font-size: 10px;
+                letter-spacing: 2.23px;
+            }
+        }
+
+        &-input::placeholder {
+            padding-left: 4px;
+            text-transform: uppercase;
+            font-size: $input-font-size;
+            letter-spacing: 2.23px;
+            color: $fonts-color;
+        }
+
+        &_col-3 {
+            grid-column: span 3;
+        }
+
+        &_col-1 {
+            grid-column: span 1;
+        }
+    }
+}
+
+.product {
+
+    &__content {
+        @include mix.displayGrid(12);
+        position: relative;
+    }
+
+    &__item {
+        grid-column: span 3;
+        padding: 30px 25px 30px 26px;
+
+        @include mix.adaptive(laptop) {
+            grid-column: span 6;
+            border-bottom: 1px solid $fonts-color;
+        }
+
+        @include mix.adaptive(470px) {
+            grid-column: 1 / -1;
+        }
+
+        &_first {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 43px 30px 30px;
+
+            @include mix.adaptive(470px) {
+                text-align: center;
+            }
+        }
+
+        &_second {
+            padding-top: 50px;
+            border-right: 1px solid $fonts-color;
+
+            @include mix.adaptive(laptop) {
+                border-right: none;
+            }
+        }
+
+        &_last {
+            border-left: 1px solid $fonts-color;
+
+            @include mix.adaptive(laptop) {
+                border-left: none;
+            }
+        }
+
+        &-title {
+            font-size: 33px;
+            text-transform: uppercase;
+            letter-spacing: 2.23px;
+            padding-bottom: 40px;
+        }
+
+        &-border {
+            position: absolute;
+            left: 25%;
+            top: 19.7px;
+            height: 100%;
+            width: 1px;
+            background-color: $fonts-color;
+
+            @include mix.adaptive(laptop) {
+                top: 0;
+                left: 50%;
+            }
+
+            @include mix.adaptive(470px) {
+                display: none;
+            }
+        }
+
+        &-img {
+            @include mix.responsiveImg(309, 464)
+        }
+
+        &-info {
+            padding-top: 23px;
+            display: flex;
+            justify-content: space-between;
+
+            &-title {
+                @include mix.fontSize(14px, 18px);
+                letter-spacing: 0.87px;
+            }
+
+            &-link {
+                display: block;
+                font-size: 13px;
+                letter-spacing: 0.4px;
+            }
+
+            &-price {
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+.press {
+
+    &__content {
+        @include mix.displayGrid(12);
+    }
+
+    &__block {
+        grid-column: span 6;
+        padding: 29px 30px 30px 24px;
+
+        @include mix.adaptive(tablet) {
+            grid-column: 1 / -1;
+        }
+
+        &_first {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            @include mix.adaptive(tablet) {
+                flex-direction: row;
+                border-bottom: 1px solid $fonts-color;
+            }
+        }
+
+        &-title {
+            font-size: 47px;
+        }
+
+        &-link {
+            width: 105px;
+            height: 62px;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-family: $header-font;
+            border: 1px solid $fonts-color;
+            border-radius: 50%;
+            @include mix.flex;
+        }
+
+        &-info {
+            padding-top: 44px;
+            @include mix.fontSize(22px, 32px);
+            padding-left: 7px;
+        }
+
+        &-buttons {
+            padding-top: 237px;
+
+            & button {
+                background-color: $global-color;
+            }
+        }
+    }
+}
+
+.footer {
+
+    &__content {
+        @include mix.displayGrid(12);
+    }
+
+    &__block {
+        grid-column: span 6;
+        padding: 20px 25px;
+
+        @include mix.adaptive(tablet) {
+            grid-column: 1 / -1;
+        }
+
+        &-title {
+            font-size: 32px;
+            letter-spacing: 2.23px;
+            text-transform: uppercase;
+        }
+
+        &-descr {
+            font-size: 19px;
+            padding: 30px 0 28px 0;
+        }
+
+        &-link {
+            font-size: 13px;
+            letter-spacing: 0.81px;
+            text-decoration: underline;
+            margin-top: 48px;
+            display: inline-block;
+        }
+
+        &_left {
+            @include mix.adaptive(tablet) {
+                border-bottom: 1px solid $fonts-color;
+                flex-direction: column;
+                text-align: center;
+                @include mix.flex;
+            }
+        }
+
+        &_right {
+            @include mix.displayGrid(12);
+        }
+    }
+
+    &__menu {
+        grid-column: span 3;
+
+        @include mix.adaptive(laptop) {
+            grid-column: span 4;
+        }
+
+        @include mix.adaptive(phone) {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            padding-top: 30px;
+        }
+
+        &-title {
+            font-size: 15px;
+            font-family: $header-font;
+            letter-spacing: 1.27px;
+            text-transform: uppercase;
+            padding-bottom: 14px;
+        }
+
+        &-item {
+            padding-bottom: 9px;
+        }
+
+        &-link {
+            font-size: 13px;
+            letter-spacing: 0.81px;
+        }
+
+        &_last {
+            grid-column: span 4;
+
+            @include mix.adaptive(phone) {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+
+    &__links {
+        grid-column: span 2;
+        display: flex;
+        justify-content: space-between;
+        align-self: start;
+
+        @include mix.adaptive(laptop) {
+            padding-top: 40px;
+            grid-column: 5 / -5;
+        }
+    }
+
+    &__info {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-top: 50px;
+
+        @include mix.adaptive(laptop) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-descr {
+            font-size: 13px;
+            letter-spacing: 0.81px;
+
+            @include mix.adaptive(laptop) {
+                order: 1;
+                padding-top: 30px;
+            }
+        }
+    }
+}
