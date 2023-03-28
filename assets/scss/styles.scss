@@ -80,7 +80,7 @@
             grid-column: 6 / span 2;
             display: flex;
             justify-self: center;
-            padding: 12px 0 24px 0;
+            padding: 12px 0 24px;
 
             @include mix.adaptive(laptop) {
                 grid-column: 1 /-1;
@@ -226,7 +226,7 @@ button.header__menu-close-btn {
 
             &-descr {
                 font-size: 21px;
-                padding: 29px 0 72px 0;
+                padding: 29px 0 72px;
             }
 
             &-links {
@@ -274,7 +274,7 @@ button.header__menu-close-btn {
             background-color: #fff;
 
             @include mix.adaptive(laptop) {
-                padding: 27px 15px 20px 15px;
+                padding: 27px 15px 20px;
             }
 
             @include mix.adaptive(tablet) {
@@ -399,7 +399,7 @@ button.header__menu-close-btn {
 
             &-descr {
                 @include mix.fontSize(20px, 28px);
-                padding: 29px 0 25px 0;
+                padding: 29px 0 25px;
             }
 
             &-link {
@@ -637,7 +637,7 @@ button.header__menu-close-btn {
 
         &-descr {
             font-size: 19px;
-            padding: 30px 0 28px 0;
+            padding: 30px 0 28px;
         }
 
         &-link {
